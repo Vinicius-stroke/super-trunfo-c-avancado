@@ -22,6 +22,8 @@ struct Carta // estrutura da carta
 int main(){
     struct Carta c1, c2;
     int opcao;
+    
+    
 
     //////////// Cadastro da carta 1 ////////////////
 
@@ -115,6 +117,9 @@ int main(){
     printf("PIB per Capita: %.2f reais\n", c2.PIBperCapita);
     printf("Superpoder: %.2f\n", c2.superpoder);  
     
+    printf("\n");
+
+    // Escolhas de atributos para comparacao
     
     printf("Escolha o atributo para comparar \n");
 
@@ -125,33 +130,173 @@ int main(){
     printf("3 - PIB\n");
 
     printf("4 - Pontos Turisticos\n");
+
+    printf("5 - Densidade demografica\n");
+
+    printf("\n");
     
-    printf("Opcao: ");
+    printf("O atributo escolhido para comparacao foi: ");
     scanf("%d", &opcao);
+
+    printf("\n");
+
+    // switch criado para que seja puxado a informacao correta que o usuario precisa ter
+    
+    switch (opcao)
+    {
+    case 0:
+        printf("Paíse Escolhido: %s\n", c1.pais);
+        printf("Paíse Escolhido: %s\n", c2.pais);
+        break;
+
+        // case de comparacao de populacao
+
+    case 1:
+        printf("Populacao vencedora:\n");
+        if (c1.populacao > c2.populacao){
+            printf("Carta 1 vence com maior populacao: %lu\n", c1.populacao);
+        } else if (c1.populacao < c2.populacao){
+            printf("Carta 2 vence com maior populacao: %lu\n", c2.populacao);
+        } else {
+            printf("Empate na populacao: %lu\n", c1.populacao);
+        }
+        break;
+
+        // case de comparacao de area
+
+    case 2:
+        printf("Area vencedora:\n");
+        if (c1.area > c2.area){
+            printf("Carta 1 vence com maior area: %.2f km²\n", c1.area);
+        } else if (c1.area < c2.area){
+            printf("Carta 2 vence com maior area: %.2f km²\n", c2.area);
+        } else {
+            printf("Empate na area: %.2f km²\n", c1.area);
+        }
+        break;
+
+        // case de comparacao de pib
+
+    case 3:
+        printf("Pib vencedora:\n");
+        if (c1.pib > c2.pib){
+            printf("Carta 1 vence com maior pib: %.2f bilhões de reais\n", c1.pib);
+        } else if (c1.pib < c2.pib){
+            printf("Carta 2 vence com maior pib: %.2f bilhões de reais\n", c2.pib);
+        } else {
+            printf("Empate no pib: %.2f bilhões de reais\n", c1.pib);
+        }
+        break;
+
+        // case de comparacao de turismo
+
+    case 4:
+        printf("Pontos Turisticos vencedora:\n");
+        if (c1.pontosTuristicos > c2.pontosTuristicos){
+            printf("Carta 1 vence com maior numero de pontos turisticos: %d\n", c1.pontosTuristicos);
+        } else if (c1.pontosTuristicos < c2.pontosTuristicos){
+            printf("Carta 2 vence com maior numero de pontos turisticos: %d\n", c2.pontosTuristicos);
+        } else {
+            printf("Empate no numero de pontos turisticos: %d\n", c1.pontosTuristicos);
+        }
+        break;
+
+        // case de comparacao de densidade populacional
+    
+    case 5:
+        printf("Densidade Populacional vencedora:\n");
+        if (c1.densidadePopulacional > c2.densidadePopulacional){
+            printf("Carta 1 vence com maior densidade populacional: %.2f hab/km²\n", c1.densidadePopulacional);
+        } else if (c1.densidadePopulacional < c2.densidadePopulacional){
+            printf("Carta 2 vence com maior densidade populacional: %.2f hab/km²\n", c2.densidadePopulacional);
+        } else {
+            printf("Empate na densidade populacional: %.2f hab/km²\n", c1.densidadePopulacional);
+        }  
+        break;
+
+        //////// fim das opcoes de case
+    
+    default:
+        printf("Opcao invalida\n");
+        break;
+    }
+
+    // informacoes que irá aparecer para o usuario
+
+    printf("\n");
+
+    // paises escolhidos
+
+    printf("Pais escolhido: %s\n", c1.pais);
+    printf("Pais escolhido: %s\n", c2.pais);
+
+    /////////////
+
+    printf("\n");
+
+    /// comparacoes de todos os atributos ///
+
+
+    // case de comparacao de populacao
     
     if(c1.populacao > c2.populacao){
-        printf("Carta 1 vence com maior populacao: %lu\n", c1.populacao);
-    } else (c1.populacao < c2.populacao);{
-        printf("Carta 2 vence com maior populacao: %lu\n", c2.populacao);
+        
+        printf("Carta 1, vence com maior populacao: %lu\n", c1.populacao);
+    } else if (c1.populacao < c2.populacao){
+        printf("Carta 2, vence com maior populacao: %lu\n", c2.populacao);
+    } else {
+        printf("Empate na populacao: %lu\n", c1.populacao);
     }
-    
+
+
+    // case de comparacao de area
+
+
+
     if(c1.area > c2.area){
-        printf("Carta 1 vence com maior area: %.2f km²\n", c1.area);
-    } else (c1.area < c2.area);{
-        printf("Carta 2 vence com maior area: %.2f km²\n", c2.area);
+        printf("Carta 1, vence com maior area: %.2f km²\n", c1.area);
+    } else if (c1.area < c2.area){
+        printf("Carta 2, vence com maior area: %.2f km²\n", c2.area);
+    } else {
+        printf("Empate na area: %.2f km²\n", c1.area);
     }
+
+
+    // case de comparacao de pib
+
 
     if(c1.pib > c2.pib){
-        printf("Carta 1 vence com maior pib: %.2f bilhões de reais\n", c1.pib);
-    } else (c1.pib < c2.pib);{
-        printf("Carta 2 vence com maior pib: %.2f bilhões de reais\n", c2.pib);
+        printf("Carta 1, vence com maior pib: %.2f bilhões de reais\n", c1.pib);
+    } else if (c1.pib < c2.pib){
+        printf("Carta 2, vence com maior pib: %.2f bilhões de reais\n", c2.pib);
+    } else {
+        printf("Empate no pib: %.2f bilhões de reais\n", c1.pib);
     }
+
+    // case de comparacao de turisticos
+
 
     if(c1.pontosTuristicos > c2.pontosTuristicos){
-        printf("Carta 1 vence com maior numero de pontos turisticos: %d\n", c1.pontosTuristicos);
-    } else (c1.pontosTuristicos < c2.pontosTuristicos);{
-        printf("Carta 2 vence com maior numero de pontos turisticos: %d\n", c2.pontosTuristicos);
+        printf("Carta 1, vence com maior numero de pontos turisticos: %d\n", c1.pontosTuristicos);
+    } else if (c1.pontosTuristicos < c2.pontosTuristicos){
+        printf("Carta 2, vence com maior numero de pontos turisticos: %d\n", c2.pontosTuristicos);
+    } else {
+        printf("Empate no numero de pontos turisticos: %d\n", c1.pontosTuristicos);
     }
-    return 0;
 
+
+    // case de comparacao de densidade populacional
+
+
+    if(c1.densidadePopulacional <= c2.densidadePopulacional){
+        printf("Carta 1, vence com menor densidade populacional: %.2f hab/km²\n", c1.densidadePopulacional);
+    } else if (c1.densidadePopulacional < c2.densidadePopulacional){
+        printf("Carta 2, vence com menor densidade populacional: %.2f hab/km²\n", c2.densidadePopulacional);
+    } else {
+        printf("Empate na densidade populacional: %.2f hab/km²\n", c1.densidadePopulacional);
+    }
+
+    ////////// fim de mensagem para o usuario de todos os atributos ////////
+      
+    return 0;
 }
